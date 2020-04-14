@@ -8,33 +8,23 @@ public class DrawGraph : MonoBehaviour
     {
         Debug.Log(Screen.width);
         point = new PlotPoint(0, 0);
+        point.DrawLine(new Vector3(-8, 0, -1), new Vector3(8, 0, -1), 0.1f, Color.red);
+        point.DrawLine(new Vector3(0, -(8 * 10 / 16), -1), new Vector3(0, (8 * 10 / 16), -1), 0.1f, Color.green); //(8*10/16 = 5) calculating screen width with given ratio 16:10 and height as 8
         point.DrawPoint(0.1f, Color.white, Vector3.zero);
-        point.DrawLine(new Vector3(-100, 0, -1), new Vector3(100, 0, -1), 0.3f, Color.red);
-        point.DrawLine(new Vector3(0, -100, -1), new Vector3(0, 100, -1), 0.3f, Color.green);
         DrawLines();
     }
 
     void DrawLines()
     {
-        bool isEven = true;
-        float width = this.width;
-        float lineWidth;
-        int count = 5;
-        int i = 0;
-        while (i < count)
+        float offsetx = 8 - width;
+        float offsety = 5 - width;
+        for (float i = (-5 + offsety); i <= 5; i += width)
         {
-            if (isEven)
-            {
-                lineWidth = 0.1f;
-            }
-            else
-            {
-                lineWidth = 0.2f;
-            }
-            point.DrawLine(new Vector3(-100, width, -1), new Vector3(100, width, -1), lineWidth, Color.black);
-            point.DrawLine(new Vector3(-100, -width, -1), new Vector3(100, -width, -1), lineWidth, Color.black);
-            isEven = !isEven; ++i;
-            width += this.width;
+            point.DrawLine(new Vector3(-8, i, -1), new Vector3(8, i, -1), 0.05f, Color.white);
+        }
+        for (float i = (-8 + offsetx); i <= 8; i += width)
+        {
+            point.DrawLine(new Vector3(i, 5, -1), new Vector3(i, -5, -1), 0.05f, Color.grey);
         }
     }
 }

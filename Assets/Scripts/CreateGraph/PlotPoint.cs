@@ -21,7 +21,7 @@ public class PlotPoint
         lineR.positionCount = 2;
         //Making point visible
         lineR.SetPosition(0, pos);
-        lineR.SetPosition(1, new Vector3(pos.x + 0.3f, pos.y + 0.3f, -1));
+        lineR.SetPosition(1, new Vector3(pos.x + 0.1f, pos.y + 0.1f, -1));
     }
     public void DrawConsoleLine(Vector3 pos1, Vector3 pos2)
     {
