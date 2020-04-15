@@ -18,11 +18,11 @@ public class DrawGraph : MonoBehaviour
     {
         float offsetx = 8 - width;
         float offsety = 5 - width;
-        for (float i = (-5 + offsety); i <= 5; i += width)
+        for (float i = (-5 + offsety) * 2; i <= 5; i += width)
         {
             point.DrawLine(new Vector3(-8, i, -1), new Vector3(8, i, -1), 0.05f, Color.white);
         }
-        for (float i = (-8 + offsetx); i <= 8; i += width)
+        for (float i = (-8 + offsetx) * 2; i <= 8; i += width)
         {
             point.DrawLine(new Vector3(i, 5, -1), new Vector3(i, -5, -1), 0.05f, Color.grey);
         }
